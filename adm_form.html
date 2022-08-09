@@ -1,0 +1,178 @@
+<!--<?php
+
+    if(isset($_POST['submit']))
+    {
+        // print_r('Nome: ' . $_POST['nome']);
+        // print_r('<br>');
+        // print_r('Email: ' . $_POST['email']);
+        // print_r('<br>');
+        // print_r('Telefone: ' . $_POST['telefone']);
+        // print_r('<br>');
+        // print_r('Sexo: ' . $_POST['genero']);
+        // print_r('<br>');
+        // print_r('Data de nascimento: ' . $_POST['data_nascimento']);
+        // print_r('<br>');
+        // print_r('Cidade: ' . $_POST['cidade']);
+        // print_r('<br>');
+        // print_r('Estado: ' . $_POST['estado']);
+        // print_r('<br>');
+        // print_r('Endereço: ' . $_POST['endereco']);
+
+        include_once('config.php');
+
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        $telefone = $_POST['telefone'];
+        $sexo = $_POST['genero'];
+        $data_nasc = $_POST['data_nascimento'];
+        $cidade = $_POST['cidade'];
+        $estado = $_POST['estado'];
+        $endereco = $_POST['endereco'];
+
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,cidade,estado,endereco) 
+        VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc','$cidade','$estado','$endereco')");
+
+        header('Location: login.php');
+    }
+
+?>-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clube de Benefício | Formulário Cadastro de Administrador</title>
+    <link rel="shortcut icon" href="Imagens/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/admform.css">
+    <link rel="stylesheet" type="text/css" href="css/adm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+</head>
+<body>
+    <header class="cabecalho">
+        <a href="index.html"><img class="cabecalho-imagem" src="Imagens/logo/android-chrome-512x512.png" alt="Logo do Clube de Benefício"></a>
+        <nav class="cabecalho-menu">
+          <span style="font-size:1.2em; font-weight: 700;" class="fa"><script src="js/refdia.js"></script></span>
+          <a class="cabecalho-menu-item" href="index.html"><spam class="fa">&#xf015</spam> Home</a>
+              <a class="cabecalho-menu-item" href="#"><spam class="fa">&#xf007</spam> Area do associado</a>
+          <a class="cabecalho-menu-item" href="administrativa.html"><spam class="fa">&#xf023</spam> Area administrativa</a>
+          <a class="cabecalho-menu-item" href="#"><spam class="fa">&#xf1ad</spam> Area da Empresa</a>
+        </nav>
+      </header>
+      <main class="conteudo">
+        <section class="conteudo-principal">
+          <div class="conteudo-principal-escrito">
+            <h1 class="conteudo-principal-escrito-titulo">Clube de Benefícios</h1>
+          </div>
+        </section>
+        <section>
+          <div class="box">
+            <form action="formulario.php" method="POST">
+                <fieldset>
+                    <legend><b>Fórmulário de Administrador</b></legend>
+                    <br>
+                    <div class="inputBox">
+                        <input type="text" name="nome" id="inome" class="inputUser" required>
+                        <label for="inome" class="labelInput">Nome completo</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                        <input type="text" name="cpf" id="cpf" class="inputUser" required>
+                        <label for="cpf" class="labelInput">CPF</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                        <input type="password" name="senha" id="senha" class="inputUser" required>
+                        <label for="senha" class="labelInput">Senha</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                        <input type="text" name="email" id="email" class="inputUser" required>
+                        <label for="email" class="labelInput">Email</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                        <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                        <label for="telefone" class="labelInput">Telefone</label>
+                    </div>
+                    <br>
+                    <p class="sexo">Sexo:</p>
+                    <input type="radio" id="feminino" name="genero" value="feminino" required>
+                    <label  class="input-sexo"for="feminino">Feminino</label>
+                    <input type="radio" id="masculino" name="genero" value="masculino" required>
+                    <label class="input-sexo" for="masculino">Masculino</label>
+                    <input type="radio" id="outro" name="genero" value="outro" required>
+                    <label class="input-sexo" for="outro">Outro</label>
+                    <br><br>
+                    <label for="data_nascimento"><b>Data de Nascimento:</b></label>
+                    <input type="date" name="data_nascimento" id="data_nascimento" required>
+                    <br><br><br>
+                    <div class="inputBox">
+                      <input type="text" name="telefone1" id="telefone1" class="inputUser" required>
+                      <label for="telefone1" class="labelInput">Telefone - 1</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                      <input type="text" name="telefone2" id="telefone2" class="inputUser" required>
+                      <label for="telefone2" class="labelInput">Telefone - 2</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                      <input type="text" name="bairro" id="bairro" class="inputUser" required>
+                      <label for="bairro" class="labelInput">Bairro</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                      <input type="text" name="cidade" id="cidade" class="inputUser" required>
+                      <label for="cidade" class="labelInput">Cidade</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                      <input type="text" name="estado" id="estado" class="inputUser" required>
+                      <label for="estado" class="labelInput">Estado</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                      <input type="text" name="endereco" id="endereco" class="inputUser" required>
+                      <label for="endereco" class="labelInput">Endereço</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                      <input type="text" name="cep" id="cep" class="inputUser" required>
+                      <label for="cep" class="labelInput">CEP</label>
+                    </div>
+                    <br><br>
+                    <input type="submit" name="submit" id="submit">
+                </fieldset>
+            </form>
+          </div>
+        </section>
+      </main> 
+      <footer>
+      </footer>
+          <script type="text/javascript">
+        $("#cpf").keypress(function() {
+            $(this).mask('000.000.000-00');
+        });
+        $("#cep").keypress(function() {
+            $(this).mask('00000-000');
+        });
+        $("#telefone1").keypress(function() {
+            $(this).mask('(00) 0000-00009')
+        });       
+        $("#telefone2").keypress(function() {
+            $(this).mask('(00) 0000-00000')
+        });       
+
+</script>
+      
+    
+</body>
+</html>
