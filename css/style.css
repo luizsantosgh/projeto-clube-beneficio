@@ -28,6 +28,7 @@
     --cor5: #09153D;
 
     --cor6: #e8e7c2;
+    --cor-adm-login: #808080;
     
     --fonte-utilizada: 'Poppins', sans-serif;
     --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
@@ -136,14 +137,14 @@ main {
 }
 
 main h1 {
-    color:  var(--cor5);
-    font-family: var(--fonte-android);
+    color: var(--cor-adm-login);
+    font-family: var(--fonte-utilizada);
     font-weight: normal;
     font-size: 1.8em;
 }
 
 main h2 {
-    font-family: var(--fonte-android);
+    font-family: var(--fonte-utilizada);
     color: var(--cor4);
     font-size: 1.3em;
     font-weight: normal;
@@ -158,6 +159,7 @@ main p {
     line-height: 1em;
     font-size: 1em;
     line-height: 1.7em;
+    color: var(--cor-adm-login);
 }
 
 main strong {
@@ -229,6 +231,7 @@ aside > ul {
     list-style-position: inside;
     columns: 2;
 }
+
 footer {
     background-color: var(--cor5);
     color:  white;
