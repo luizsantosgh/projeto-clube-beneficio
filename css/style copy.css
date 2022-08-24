@@ -28,7 +28,7 @@
     --cor5: #09153D;
 
     --cor6: #e8e7c2;
-    --cor-adm-login: #333333;
+    --cor-adm-login: #808080;
     --cor-sublinhado: #ccc;
     
     --fonte-utilizada: 'Poppins', sans-serif;
@@ -65,6 +65,28 @@ header {
 .logoimg {
     height: 72px;
 }
+
+/*header > h1 {
+    color:  white;
+    font-family: var(--fonte-utilizada);
+    font-size: 3em;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.267);
+}
+
+header > p {
+    font-family: var(--fonte-utilizada);
+    font-size: 1.2em;
+    color: white;
+    max-width: 700px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: auto;
+    padding-bottom: 30px;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.315);
+
+}*/
 
 nav { 
     display: flex;
@@ -105,7 +127,7 @@ nav > a:hover {
 
 main {
     min-width: 300px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
     margin-bottom: 20px;
     background-color: white;
@@ -122,11 +144,29 @@ main h1 {
     font-size: 1.8em;
 }
 
+main h2 {
+    font-family: var(--fonte-utilizada);
+    color: var(--cor4);
+    font-size: 1.3em;
+    font-weight: normal;
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+    text-indent: 8px;
+}
 
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 1em;
+    font-size: 1em;
+    line-height: 1.7em;
+    color: var(--cor-adm-login);
+}
 
-
-
-
+main strong {
+    color: var(--cor4);
+    font-weight: bolder;
+}
 
 main a{
     text-decoration: none;
