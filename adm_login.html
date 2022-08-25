@@ -31,16 +31,31 @@
         <div class="conteudo-login-adm">
           <h2>Login | Área Administrativa</h2>
           <p>
-            Área destinada para administração a Rede e/ou Clube de Benefício Acesse para poder ver mais detalhes dos convênios, adicionar dependentes, emitir seu cartão de identificação e muito mais.
+            Área destinada para administração do sistema da Rede e/ou Clube de Benefício.
+          </p>
+          <p> 
+            Acesse para poder ver detalhes dos convênios, adicionar associados, dependentes, emitir cartão de identificação e muito mais. 
+          </p>
+          <p> 
+            O cadastramento de novo Administrador não é automático. Para este procedimento, informe seu CPF e deixe a senha em branco. Será apresentado uma ficha de cadastro, para ser preenchida, e após avaliação das informações, o acesso do novo Administrador será autorizado. 
           </p>
           <p>
-            <strong>Caso não tenha alterado a senha, ela é a sua data de nascimento</strong>, sem pontuação. <br><i>Exemplo: se sua data de nascimento é 27/11/1951, sua senha é 27111951.</i>
+            <strong>A senha para primeiro acesso, será encaminhado por e-mail informado na ficha de cadastro.</strong>
           </p>
 
-          <form action="testLogin.php" method="POST">
-              <input type="text" name="email" placeholder="Email">
-              <br><br>
-              <input type="password" name="senha" placeholder="Senha">
+          <form class="form-login-adm" action="adm_form.html" method="POST">
+            <p>
+              <label class="label-login-adm" for="icpf">Informe seu CPF: <span>*</span></label>
+            </p>
+            <p>
+              <input class="input-login-adm" type="number" name="cpf" id="icpf" requerid placeholder="Informe seu CPF apenas números">
+            </p>
+            <p>
+              <label class="label-login-adm" for="isen">Senha: <span>*</span></label>
+            </p>
+            <p>
+              <input class="input-login-adm" type="password" name="sen" id="isen" placeholder="Senha">
+            </p>
               <br><br>
               <input class="inputSubmit" type="submit" name="submit" value="Enviar">
           </form>
@@ -52,7 +67,29 @@
     </section>
   </main> 
   <footer>
-  </footer>
+    <div>
+      <h3>Clube Benefício</h3>
+      <p><a href="">Associe-se</a></p>
+      <p><a href="">Sobre o Clube</a></p>
+      <p><a href="">Dúvidas frequentes</a></p>
+      <p><a href="">Convênios</a></p>
+      <p><a href="">Política de Privacidade</a></p>
         
+    </div>
+    <div>
+      <h3>Seu espaço</h3>
+      <p><a href="">Área do associado</a></p>
+      <p><a href="">Depoimentos de associados</a></p>
+      <p><a href="">DEmpresa conveniada</a></p>
+    </div>
+    <div>
+      <h3>Fale Conosco</h3>
+      <p><a href="">Avenida Presidente Vargas 509 - 8º andar<br>- CEP: 20071-003 - Centro - Rio de Janeiro/RJ</a></p>
+      <p><a href=""><img src="Imagens/landline-n.png"> (21) 3321-6425</a></p>
+      <p><a href=""><img src="Imagens/phone-call.png"> (21) 6425-3321</a></p>
+      <p><a href=""><img src="Imagens/email-n.png" style="height: 12px;"> clubebenef@rbenef.com.br</a></p>
+      </dl>
+  </div>
+</footer>        
 </body>
 </html>
