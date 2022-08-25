@@ -31,9 +31,6 @@ background: red;
     }
 }
 
-.conteudo-login-adm {
-
-}
 .conteudo-login-adm > h2 {
     color: var(--cor-adm-login);
     padding-bottom: 15px;
