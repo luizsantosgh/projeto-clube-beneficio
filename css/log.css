@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+/* ------------------------- */
+/* style para adm_login.html */
+/* ------------------------- */
+
 .tela-login-adm {
     display: flex;  
     flex-flow: row wrap;
@@ -16,14 +20,14 @@
 }
 
 .aside-1 {
-    background: green;
+    background: /*green*/ white;
 }
 
 .aside-2 {
-background: red;
+background: /*red*/ white;
 }
 
-@media all and (min-width: 300px) {
+@media all and (min-width: 460px) {
 .aside-login-adm { 
     flex: 1 0 0; 
     border-radius: 0px;
@@ -31,6 +35,13 @@ background: red;
     }
 }
 
+@media all and (min-width: 800px) {
+    .conteudo-login-adm    { flex: 3 0px; }
+    .aside-1 { order: 1; } 
+    .conteudo-login-adm    { order: 2; }
+    .aside-2 { order: 3; }
+    }
+    
 .conteudo-login-adm > h2 {
     color: var(--cor-adm-login);
     padding-bottom: 15px;
@@ -50,12 +61,6 @@ background: red;
     font-weight: 600;
 }
 
-@media all and (min-width: 800px) {
-.conteudo-login-adm    { flex: 3 0px; }
-.aside-1 { order: 1; } 
-.conteudo-login-adm    { order: 2; }
-.aside-2 { order: 3; }
-}
 label.label-login-adm {
     color: var(--cor-adm-login);
     font-weight: 400;
@@ -95,98 +100,3 @@ input.input-login-adm {
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.main-login-adm {
-    min-width: 300px;
-    max-width: 1000px;
-    margin: auto;
-    margin-bottom: 20px;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.705);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.main-login-adm h1 {
-    color: var(--cor-adm-login);
-    font-family: var(--fonte-utilizada);
-    font-weight: normal;
-    font-size: 1.8em;
-}
-
-.main-login-adm h2 {
-    font-family: var(--fonte-utilizada);
-    color: var(--cor-adm-login);
-    font-size: 1.3em;
-    font-weight: normal;
-    /*text-indent: 8px;*/
-}
-
-.main-login-adm p {
-    margin: 15px 0px;
-    text-align: justify;
-    text-indent: 30px;
-    line-height: 1em;
-    font-size: 1em;
-    line-height: 1.7em;
-    color: var(--cor-adm-login);
-}
-
-.main-login-adm strong {
-    color: var(--cor4);
-    font-weight: bolder;
-}
-
-.main-login-adm a{
-    text-decoration: none;
-    font-weight: bolder;
-    padding: 2px 5px;
-    text-shadow: 0px 0px 3px var(--cor1);
-
-}
-
-.main-login-adm a:hover{
-    text-decoration: underline;
-    color: var(--cor4);
-}
-
-.main-login-adm img {
-    width: 100%;
-}
-
-.main-login-adm img.pequena {
-    max-width: 350px;
-    display: block;
-    margin: auto;
-}
-
-/*.tela-login {
-    background-color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 10px 30px 30px 30px;
-    border-radius: 15px;
-    color: #fff;
-}
-
-.tela-login h1 {
-    padding: 10px 0px;
-}
-
-*/

@@ -10,6 +10,11 @@
     <link rel="stylesheet" type="text/css" href="css/log.css">
     <link rel="stylesheet" type="text/css" href="css/adm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <title>Clube de Benefício | Login Administrador</title>
 </head>
 
@@ -25,7 +30,7 @@
       </nav>
   </header>
 
-  <main class="main-index">
+  <main>
     <section>
       <div class="tela-login-adm">
         <div class="conteudo-login-adm">
@@ -48,7 +53,7 @@
               <label class="label-login-adm" for="icpf">Informe seu CPF: <span>*</span></label>
             </p>
             <p>
-              <input class="input-login-adm" type="number" name="cpf" id="icpf" requerid placeholder="Informe seu CPF apenas números">
+              <input class="input-login-adm" type="text" name="cpf" id="icpf" requerid placeholder="Informe seu CPF apenas números">
             </p>
             <p>
               <label class="label-login-adm" for="isen">Senha: <span>*</span></label>
@@ -90,6 +95,21 @@
       <p><a href=""><img src="Imagens/email-n.png" style="height: 12px;"> clubebenef@rbenef.com.br</a></p>
       </dl>
   </div>
-</footer>        
+</footer> 
+<script type="text/javascript">
+  $("#icpf").keypress(function() {
+      $(this).mask('000.000.000-00');
+  });
+  $("#cep").keypress(function() {
+      $(this).mask('00000-000');
+  });
+  $("#telefone1").keypress(function() {
+      $(this).mask('(00) 0000-00009')
+  });       
+  $("#telefone2").keypress(function() {
+      $(this).mask('(00) 0000-00000')
+  });       
+</script>
+
 </body>
 </html>
