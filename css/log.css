@@ -77,11 +77,23 @@ label span {
 input.input-adm {
     padding: 15px;
     margin: 10px 0 20px;
-    outline-color: var(--cor-logo);
     border: 1px solid var(--cor-sublinhado);
     border-radius: 4px;
     font-size: 1em;
     width: 100%;
+}
+
+input.input-adm:focus {
+    box-shadow: 4px 7px 7px #0000005d;
+    outline-color: white;
+}
+
+input.input-adm-dddtelcel {
+    width: 20%;
+}
+
+input.input-adm-telcel {
+    width: 40%;
 }
 
 .inputSubmit {
@@ -101,6 +113,18 @@ input.input-adm {
     cursor: pointer;
 }
 
+select.select-adm {
+    width: 50%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--cor-sublinhado);
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+  select.select-adm:focus {
+     outline: white solid 1px;
+}
 /* *********************** */
 .adm-senha {
     display: flex;
@@ -131,7 +155,6 @@ input.input-adm {
     padding: 15px;
     margin-bottom: 20px;
 }
-
 
 .adm-genero {
  /*   display: flex;

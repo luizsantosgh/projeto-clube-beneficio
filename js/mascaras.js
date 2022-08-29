@@ -13,14 +13,21 @@ function soNumeros(v){
     return v.replace(/\D/g,"")
 }
 
-function telefone(v){
+function maskdddtelefone(v){
     v=v.replace(/\D/g,"")                 //Remove tudo o que não é dígito
     v=v.replace(/^(\d\d)(\d)/g,"($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
     v=v.replace(/(\d{4})(\d)/,"$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
     return v
 }
 
-function mcpf(v){
+function maskdddcelular(v){
+    v=v.replace(/\D/g,"")                 //Remove tudo o que não é dígito
+    v=v.replace(/^(\d\d)(\d)/g,"($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d{5})(\d)/,"$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
+    return v
+}
+
+function maskcpf(v){
     v=v.replace(/\D/g,"")                    //Remove tudo o que não é dígito
     v=v.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
     v=v.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
@@ -29,13 +36,13 @@ function mcpf(v){
     return v
 }
 
-function cep(v){
+function maskcep(v){
     v=v.replace(/D/g,"")                //Remove tudo o que não é dígito
     v=v.replace(/^(\d{5})(\d)/,"$1-$2") //Esse é tão fácil que não merece explicações
     return v
 }
 
-function cnpj(v){
+function maskcnpj(v){
     v=v.replace(/\D/g,"")                           //Remove tudo o que não é dígito
     v=v.replace(/^(\d{2})(\d)/,"$1.$2")             //Coloca ponto entre o segundo e o terceiro dígitos
     v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3") //Coloca ponto entre o quinto e o sexto dígitos
@@ -44,7 +51,7 @@ function cnpj(v){
     return v
 }
 
-function romanos(v){
+function maskromanos(v){
     v=v.toUpperCase()             //Maiúsculas
     v=v.replace(/[^IVXLCDM]/g,"") //Remove tudo o que não for I, V, X, L, C, D ou M
     //Essa é complicada! Copiei daqui: http://www.diveintopython.org/refactoring/refactoring.html
@@ -53,7 +60,7 @@ function romanos(v){
     return v
 }
 
-function site(v){
+function masksite(v){
     //Esse sem comentarios para que você entenda sozinho ;-)
     v=v.replace(/^http:\/\/?/,"")
     dominio=v

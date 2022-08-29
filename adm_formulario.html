@@ -45,15 +45,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Visualização de Clube de Benefícios" />
     <link rel="shortcut icon" href="Imagens/logo/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/log.css">
-    <link rel="stylesheet" type="text/css" href="css/adm.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/buscaCep.js"></script>
     <script type="text/javascript" src="js/mascaras.js"></script>
+    <script type="text/javascript" src="js/tipotelefone.js"></script>
 
 
     <title>Clube de Benefício | Formulário Cadastro de Administrador</title>
@@ -76,10 +76,10 @@
         <div class="conteudo-adm">
           <h2>Formulário | Área Administrativa</h2>
 
-          <form class="form-adm" action="adm_form.html" method="POST">
-            <p>
-              <label class="label-adm" for="inome">Nome do Administrador: <span>*</span></label>
-            </p>
+          <form class="form-adm" action="adm_form.html" method="get">
+              <p>
+                <label class="label-adm" for="inome">Nome do Administrador: <span>*</span></label>
+              </p>
             <p>
               <input class="input-adm" type="text" name="nome" id="inome" required placeholder="Informe seu nome completo">
             </p>
@@ -87,25 +87,26 @@
               <label class="label-adm" for="icpf">Informe seu CPF: <span>*</span></label>
             </p>
             <p>
-              <input class="input-adm" type="text" name="cpf" id="icpf" required placeholder="Informe seu CPF apenas números" disabled>
+              <input class="input-adm" type="text" name="cpf" id="icpf" required placeholder="Informe seu CPF apenas números" onkeypress="mascara(this,maskcpf)" maxlength="14">
             </p>
             <fieldset  class="adm-senha">
               <legend>Senha</legend>
               <div>
-              <p>
-                <label class="label-adm" for="isenha">Informe sua Senha: <span>*</span></label>
-              </p>
-              <p>
-                <input class="input-adm" type="password" name="senha" id="isenha" required placeholder="Senha - Mínimo 8 letras" minlength="8" maxlength="20" disabled>
+                <p>
+                  <label class="label-adm" for="isenha">Informe sua Senha: <span>*</span></label>
+                </p>
+                <p>
+                  <input class="input-adm" type="password" name="senha" id="isenha" required placeholder="Senha - Mínimo 8 letras" minlength="8" maxlength="20" disabled>
                 </p>
               </div>
               <div>
                 <p>
-                <label class="label-adm" for="isenhaconf">Confirme sua Senha: <span>*</span></label>
-              </p>
-                <input class="input-adm" type="password" name="senhaconf" id="isenhaconf" required placeholder="Digite novamente sua senha" minlength="8" maxlength="20" disabled>
-              </p>
-            </div>
+                  <label class="label-adm" for="isenhaconf">Confirme sua Senha: <span>*</span></label>
+                </p>
+                <p>
+                  <input class="input-adm" type="password" name="senhaconf" id="isenhaconf" required placeholder="Digite novamente sua senha" minlength="8" maxlength="20" disabled>
+                </p>
+              </div>
             </fieldset>
             <p>
               <label class="label-adm" for="iemail">Informe seu E-mail: <span>*</span></label>
@@ -117,28 +118,28 @@
               <legend>Telefone fixo e/ou Celular</legend>
               <p>
                 <label for="itptel">Tipo telefone: <span>*</span></label>
-                <select onclick="selected(this.value)" id="itptel" name="tptel">
-                  <option selected value="0">Selecionar</option>
+                <select  class="select-adm" onclick="tipotel(this.value)" id="itptel" name="tptel" required>
+                  <option selected value="0" disabled>-- Selecionar --</option>
                   <option value="1">Fixo</option>
                   <option value="2">Celular</option>
                 </select>
               </p>
-              <p class="ddd" style="display:none;">
-                  <label for="iddd">DDD</label>
-                  <input class="input-adm" type="text" placeholder="DDD" id="iddd" name="ddd"  pattern="^\d{2}$">
-              </p>
-              <p class="celular" style="display:none;">
-                  <label for="icel">Celular</label>
-                  <input class="input-adm" type="text" placeholder="00000-0000" id="icel" name="cel" pattern="^\d{5}-\d{4}$">
-              </p>
-              <p class="ddd2" style="display:none;">
-                <label for="iddd2">DDD</label>
-                <input class="input-adm" type="text" placeholder="DDD" id="iddd2" name="ddd2"  pattern="^\d{2}$">
-              </p>
-              <p class="telefone" style="display:none;">
-                  <label for="itel">Celular</label>
-                  <input class="input-adm" type="text" placeholder="0000-0000" id="itel" name="tel" pattern="^\d{4}-\d{4}$">
-              </p>
+              <div class="mostracelular" style="display:none;">
+                <p>
+                  <label class="label-adm" for="idddcel">DDD / Celular: <span>*</span></label>
+                </p>
+                <p>
+                  <input class="input-adm" type="text" placeholder="Informe seu Celular com DDD - apenas números" id="icel" name="namecel" onkeypress="mascara(this,maskdddcelular)" maxlength="15">
+                </p>
+              </div>
+              <div class="mostratelefone" style="display:none;">
+                <p>
+                  <label class="label-adm" for="idddtel">DDD - Telefone Fixo: <span>*</span></label>
+                </p>
+                <p>
+                  <input class="input-adm" type="text" placeholder="Informe seu Telefone Fixo com DDD - apenas números" id="itel" name="nametel" onkeypress="mascara(this,maskdddtelefone)" maxlength="14">
+                </p>
+              </div>
             </fieldset>
             <p>
               <fieldset class="adm-genero">
@@ -159,74 +160,74 @@
                   <input type="radio" id="iprefironaoresponder" name="genero" value="prefironaoresponder" required />
                   <label class="input-sexo" for="iprefironaoresponder">Prefiro não responder</label>
                 </div>
-              
-            </fieldset>
-              <p>
-                <label class="label-adm" for="idtnasc">Data Nascimento: <span>*</span></label>
-                <input class="input-adm" type="date" id="idtnasc" name="dtnasc" required />
-              </p>
+              </fieldset>
+            </p>
+            <p>
+              <label class="label-adm" for="idtnasc">Data Nascimento: <span>*</span></label>
+              <input class="input-adm" type="date" id="idtnasc" name="dtnasc" required />
+            </p>
             </p>  
               <fieldset class="adm-endereco">
-                <legend>Informe seu Endereço</legend>
-                <p>
-                  <label class="label-adm" for="icepe">CEP: <span>*</span></label>
-                  <input class="input-adm" id="icepe" name="cepe" type="text" required />
-                </p>
-                <p>
-                  <label class="label-adm" for="ilogradouro">Logradouro: <span>*</span></label>
-                  <input class="input-adm" id="ilogradouro" type="text" required />
-                </p>
-                <p>
-                  <label class="label-adm" for="inumero">Número: </label>
-                  <input class="input-adm" id="inumero" type="text" />
-                </p>
-                <p>
-                  <label class="label-adm" for="icomplemento">Complemento: </label>
-                  <input class="input-adm" id="icomplemento" type="text" />
-                </p>
-                <p>
-                  <label class="label-adm" for="ibairro">Bairro: <span>*</span></label>
-                  <input class="input-adm" id="ibairro" type="text" required />
-                </p>
-                <p>
-                  <label class="label-adm" for="icidade">Cidade: <span>*</span></label>
-                  <input class="input-adm" id="icidade" type="text" required />
-                </p>
-                <p>
-                  <label class="label-adm" for="iuf">Estado: <span>*</span></label>
-                  <select id="iuf">
-                    <option value="0">Selecione</option>
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
-                  </select>
-                </p>
-              </fieldset>
-              <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+              <legend>Informe seu Endereço</legend>
+            <p>
+              <label class="label-adm" for="icepe">CEP: <span>*</span></label>
+              <input class="input-adm" id="icepe" name="cepe" type="text" onkeypress="mascara(this,maskcep)" maxlength="9" onblur="pesquisacep(this.value);" required />
+            </p>
+            <p>
+              <label class="label-adm" for="ibclogradouro">Logradouro: <span>*</span></label>
+              <input class="input-adm" id="ibclogradouro" type="text" name="logradouro" required />
+            </p>
+            <p>
+              <label class="label-adm" for="ibcnumero">Número: </label>
+              <input class="input-adm" id="ibcnumero" type="text" name="numerto" required />
+            </p>
+            <p>
+              <label class="label-adm" for="ibccomplemento">Complemento: </label>
+              <input class="input-adm" id="ibccomplemento" type="text" name="complemento" />
+            </p>
+            <p>
+              <label class="label-adm" for="ibcbairro">Bairro: <span>*</span></label>
+              <input class="input-adm" id="ibcbairro" type="text" name="bairro" required />
+            </p>
+            <p>
+              <label class="label-adm" for="ibccidade">Cidade: <span>*</span></label>
+              <input class="input-adm" id="ibccidade" type="text" name="cidade" required />
+            </p>
+            <p>
+              <label class="label-adm" for="ibcuf">Estado: <span>*</span></label>
+              <select class="select-adm" id="ibcuf" name="estado" required>
+                <option value="0" disabled>-- Selecione --</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
+            </p>
+            </fieldset>
+            <input type="submit" class="inputSubmit" name="submit" value="Enviar" />
           </form>
         </div>
         <aside class="aside-adm aside-1"></aside>

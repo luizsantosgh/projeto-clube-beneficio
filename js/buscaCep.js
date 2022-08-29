@@ -18,27 +18,27 @@
 //  }); 
 //   
     function limpa_formulário_cep() {
-            document.getElementById('rua').value=("");
-            document.getElementById('bairro').value=("");
-            document.getElementById('cidade').value=("");
-            document.getElementById('uf').value=("");
-            document.getElementById('ibge').value=("");
-            document.getElementById('gia').value=("");
-            document.getElementById('ddd').value=("");
-            document.getElementById('siafi').value=("");
+            document.getElementById('ibclogradouro').value=("");
+            document.getElementById('ibcbairro').value=("");
+            document.getElementById('ibccidade').value=("");
+            document.getElementById('ibcuf').value=("");
+            //document.getElementById('ibcibge').value=("");
+            //document.getElementById('ibcgia').value=("");
+            //document.getElementById('ibcddd').value=("");
+            //document.getElementById('ibcsiafi').value=("");
     }
 
     function meu_callback(conteudo) {
         if (!("erro" in conteudo)) {
-            document.getElementById('rua').value=(conteudo.logradouro);
-            document.getElementById('bairro').value=(conteudo.bairro);
-            document.getElementById('cidade').value=(conteudo.localidade);
-            document.getElementById('uf').value=(conteudo.uf);
-            document.getElementById('ibge').value=(conteudo.ibge);
-            document.getElementById('gia').value=(conteudo.gia);
-            document.getElementById('ddd').value=(conteudo.ddd);
-            document.getElementById('siafi').value=(conteudo.siafi);
-            document.getElementById('inumero').focus;
+            document.getElementById('ibclogradouro').value=(conteudo.logradouro);
+            document.getElementById('ibcbairro').value=(conteudo.bairro);
+            document.getElementById('ibccidade').value=(conteudo.localidade);
+            document.getElementById('ibcuf').value=(conteudo.uf);
+            //document.getElementById('ibcibge').value=(conteudo.ibge);
+            //document.getElementById('ibcgia').value=(conteudo.gia);
+            //document.getElementById('ibcddd').value=(conteudo.ddd);
+            //document.getElementById('ibcsiafi').value=(conteudo.siafi);
+            document.getElementById('ibcnumero').focus;
         }
         else {
             limpa_formulário_cep();
@@ -56,14 +56,14 @@
 
             if(validacep.test(cep)) {
 
-                document.getElementById('rua').value="...";
-                document.getElementById('bairro').value="...";
-                document.getElementById('cidade').value="...";
-                document.getElementById('uf').value="...";
-                document.getElementById('ibge').value="...";
-                document.getElementById('gia').value="...";
-                document.getElementById('ddd').value="...";
-                document.getElementById('siafi').value="...";
+                document.getElementById('ibclogradouro').value="...";
+                document.getElementById('ibcbairro').value="...";
+                document.getElementById('ibccidade').value="...";
+                document.getElementById('ibcuf').value="...";
+                //document.getElementById('ibcibge').value="...";
+                //document.getElementById('ibcgia').value="...";
+                //document.getElementById('ibcddd').value="...";
+                //document.getElementById('ibcsiafi').value="...";
     
                 var script = document.createElement('script');
 
