@@ -26,10 +26,11 @@
     --cor3: #2B4AA8;
     --cor4: #26365C;
     --cor5: #09153D;
-
     --cor6: #e8e7c2;
-
-    --cor-adm-login: #333333;
+ 
+    --cor-link: #337ab7;
+    --cor-link-hover: #286090;
+    --cor-adm: #333333;
     --cor-sublinhado: #ccc;
     --cor-logo: #ec7000;
     
@@ -135,7 +136,7 @@ main {
 }
 
 main h1 {
-    color: var(--cor-adm-login);
+    color: var(--cor-adm);
     font-family: var(--fonte-utilizada);
     font-weight: normal;
     font-size: 1.8em;

@@ -8,15 +8,13 @@
     <link rel="shortcut icon" href="Imagens/logo/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/log.css">
-    <link rel="stylesheet" type="text/css" href="css/adm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-    <title>Clube de Benefício | Login Administrador</title>
-</head>
+  <script type="text/javascript" src="js/mascaras.js"></script>
+  <title>Clube de Benefício | Login Administrador</title>
+  </head>
 
 <body>
   <header>
@@ -32,8 +30,8 @@
 
   <main>
     <section>
-      <div class="tela-login-adm">
-        <div class="conteudo-login-adm">
+      <div class="tela-adm">
+        <div class="conteudo-adm">
           <h2>Login | Área Administrativa</h2>
           <p>
             Área destinada para administração do sistema da Rede e/ou Clube de Benefício.
@@ -48,25 +46,25 @@
             <strong>A senha para primeiro acesso, será encaminhado por e-mail informado na ficha de cadastro.</strong>
           </p>
 
-          <form class="form-login-adm" action="adm_form.html" method="POST">
+          <form class="form-adm" action="adm_formulario.html" method="POST">
             <p>
-              <label class="label-login-adm" for="icpf">Informe seu CPF: <span>*</span></label>
+              <label class="label-adm" for="icpf">Informe seu CPF: <span>*</span></label>
             </p>
             <p>
-              <input class="input-login-adm" type="text" name="cpf" id="icpf" requerid placeholder="Informe seu CPF apenas números">
+              <input class="input-adm" type="text" name="cpf" id="icpf" required placeholder="Informe seu CPF apenas números" onkeypress="mascara(this,mcpf)" maxlength="14">
             </p>
             <p>
-              <label class="label-login-adm" for="isen">Senha: <span>*</span></label>
+              <label class="label-adm" for="isen">Senha: <span>*</span></label>
             </p>
             <p>
-              <input class="input-login-adm" type="password" name="sen" id="isen" placeholder="Senha">
+              <input class="input-adm" type="password" name="sen" id="isen" placeholder="Senha">
             </p>
-              <br><br>
-              <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+             
+            <input class="inputSubmit" type="submit" name="submit" value="Enviar">
           </form>
         </div>
-        <aside class="aside-login-adm aside-1"></aside>
-        <aside class="aside-login-adm aside-2"></aside>
+        <aside class="aside-adm aside-1"></aside>
+        <aside class="aside-adm aside-2"></aside>
         
       </div>
     </section>
@@ -96,20 +94,7 @@
       </dl>
   </div>
 </footer> 
-<script type="text/javascript">
-  $("#icpf").keypress(function() {
-      $(this).mask('000.000.000-00');
-  });
-  $("#cep").keypress(function() {
-      $(this).mask('00000-000');
-  });
-  $("#telefone1").keypress(function() {
-      $(this).mask('(00) 0000-00009')
-  });       
-  $("#telefone2").keypress(function() {
-      $(this).mask('(00) 0000-00000')
-  });       
-</script>
+
 
 </body>
 </html>

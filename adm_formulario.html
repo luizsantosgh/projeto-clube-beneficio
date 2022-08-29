@@ -1,0 +1,265 @@
+<!--<?php
+
+    if(isset($_POST['submit']))
+    {
+        // print_r('Nome: ' . $_POST['nome']);
+        // print_r('<br>');
+        // print_r('Email: ' . $_POST['email']);
+        // print_r('<br>');
+        // print_r('Telefone: ' . $_POST['telefone']);
+        // print_r('<br>');
+        // print_r('Sexo: ' . $_POST['genero']);
+        // print_r('<br>');
+        // print_r('Data de nascimento: ' . $_POST['data_nascimento']);
+        // print_r('<br>');
+        // print_r('Cidade: ' . $_POST['cidade']);
+        // print_r('<br>');
+        // print_r('Estado: ' . $_POST['estado']);
+        // print_r('<br>');
+        // print_r('Endereço: ' . $_POST['endereco']);
+
+        include_once('config.php');
+
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        $telefone = $_POST['telefone'];
+        $sexo = $_POST['genero'];
+        $data_nasc = $_POST['data_nascimento'];
+        $cidade = $_POST['cidade'];
+        $estado = $_POST['estado'];
+        $endereco = $_POST['endereco'];
+
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,cidade,estado,endereco) 
+        VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc','$cidade','$estado','$endereco')");
+
+        header('Location: login.php');
+    }
+
+?>-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Visualização de Clube de Benefícios" />
+    <link rel="shortcut icon" href="Imagens/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/log.css">
+    <link rel="stylesheet" type="text/css" href="css/adm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/buscaCep.js"></script>
+    <script type="text/javascript" src="js/mascaras.js"></script>
+
+
+    <title>Clube de Benefício | Formulário Cadastro de Administrador</title>
+</head>
+
+<body>
+  <header>
+      <a href="index.html"><img class="logoimg" src="Imagens/logo/android-chrome-512x512.png" alt="Logo do Clube de Benefício"></a>
+      <nav>
+          <span  style="padding: 10px; color: #ec7000; font-weight: 300; font-size:1.2em;" class="fa"><script src="js/refdia.js"></script></span>
+          <a href="index.html"><spam class="fa">&#xf015</spam> Home</a>
+          <a href="#"><spam class="fa">&#xf007</spam> Área do associado</a>
+          <a href=""><spam class="fa">&#xf023</spam> Área administrativa</a>
+          <a href="#"><spam class="fa">&#xf1ad</spam> Área da Empresa</a>
+      </nav>
+  </header>
+  <main>
+    <section>
+      <div class="tela-adm">
+        <div class="conteudo-adm">
+          <h2>Formulário | Área Administrativa</h2>
+
+          <form class="form-adm" action="adm_form.html" method="POST">
+            <p>
+              <label class="label-adm" for="inome">Nome do Administrador: <span>*</span></label>
+            </p>
+            <p>
+              <input class="input-adm" type="text" name="nome" id="inome" required placeholder="Informe seu nome completo">
+            </p>
+            <p>
+              <label class="label-adm" for="icpf">Informe seu CPF: <span>*</span></label>
+            </p>
+            <p>
+              <input class="input-adm" type="text" name="cpf" id="icpf" required placeholder="Informe seu CPF apenas números" disabled>
+            </p>
+            <fieldset  class="adm-senha">
+              <legend>Senha</legend>
+              <div>
+              <p>
+                <label class="label-adm" for="isenha">Informe sua Senha: <span>*</span></label>
+              </p>
+              <p>
+                <input class="input-adm" type="password" name="senha" id="isenha" required placeholder="Senha - Mínimo 8 letras" minlength="8" maxlength="20" disabled>
+                </p>
+              </div>
+              <div>
+                <p>
+                <label class="label-adm" for="isenhaconf">Confirme sua Senha: <span>*</span></label>
+              </p>
+                <input class="input-adm" type="password" name="senhaconf" id="isenhaconf" required placeholder="Digite novamente sua senha" minlength="8" maxlength="20" disabled>
+              </p>
+            </div>
+            </fieldset>
+            <p>
+              <label class="label-adm" for="iemail">Informe seu E-mail: <span>*</span></label>
+            </p>
+            <p>
+              <input class="input-adm" type="text" name="email" id="iemail" required placeholder="Informe seu E-mail" pattern="^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$">
+            </p>
+            <fieldset class="adm-phone">
+              <legend>Telefone fixo e/ou Celular</legend>
+              <p>
+                <label for="itptel">Tipo telefone: <span>*</span></label>
+                <select onclick="selected(this.value)" id="itptel" name="tptel">
+                  <option selected value="0">Selecionar</option>
+                  <option value="1">Fixo</option>
+                  <option value="2">Celular</option>
+                </select>
+              </p>
+              <p class="ddd" style="display:none;">
+                  <label for="iddd">DDD</label>
+                  <input class="input-adm" type="text" placeholder="DDD" id="iddd" name="ddd"  pattern="^\d{2}$">
+              </p>
+              <p class="celular" style="display:none;">
+                  <label for="icel">Celular</label>
+                  <input class="input-adm" type="text" placeholder="00000-0000" id="icel" name="cel" pattern="^\d{5}-\d{4}$">
+              </p>
+              <p class="ddd2" style="display:none;">
+                <label for="iddd2">DDD</label>
+                <input class="input-adm" type="text" placeholder="DDD" id="iddd2" name="ddd2"  pattern="^\d{2}$">
+              </p>
+              <p class="telefone" style="display:none;">
+                  <label for="itel">Celular</label>
+                  <input class="input-adm" type="text" placeholder="0000-0000" id="itel" name="tel" pattern="^\d{4}-\d{4}$">
+              </p>
+            </fieldset>
+            <p>
+              <fieldset class="adm-genero">
+                <legend>Informe seu Gênero</legend>
+                <div>
+                  <input type="radio" id="ifeminino" name="genero" value="feminino" required />
+                  <label  class="input-sexo" for="ifeminino">Feminino</label>
+                </div>
+                <div>
+                  <input type="radio" id="imasculino" name="genero" value="masculino" required />
+                  <label class="input-sexo" for="imasculino">Masculino</label>
+                </div>
+                <div>
+                  <input type="radio" id="inaobinario" name="genero" value="naobinario" required />
+                  <label class="input-sexo" for="inaobinario">Não-binário</label>
+                </div>
+                <div>
+                  <input type="radio" id="iprefironaoresponder" name="genero" value="prefironaoresponder" required />
+                  <label class="input-sexo" for="iprefironaoresponder">Prefiro não responder</label>
+                </div>
+              
+            </fieldset>
+              <p>
+                <label class="label-adm" for="idtnasc">Data Nascimento: <span>*</span></label>
+                <input class="input-adm" type="date" id="idtnasc" name="dtnasc" required />
+              </p>
+            </p>  
+              <fieldset class="adm-endereco">
+                <legend>Informe seu Endereço</legend>
+                <p>
+                  <label class="label-adm" for="icepe">CEP: <span>*</span></label>
+                  <input class="input-adm" id="icepe" name="cepe" type="text" required />
+                </p>
+                <p>
+                  <label class="label-adm" for="ilogradouro">Logradouro: <span>*</span></label>
+                  <input class="input-adm" id="ilogradouro" type="text" required />
+                </p>
+                <p>
+                  <label class="label-adm" for="inumero">Número: </label>
+                  <input class="input-adm" id="inumero" type="text" />
+                </p>
+                <p>
+                  <label class="label-adm" for="icomplemento">Complemento: </label>
+                  <input class="input-adm" id="icomplemento" type="text" />
+                </p>
+                <p>
+                  <label class="label-adm" for="ibairro">Bairro: <span>*</span></label>
+                  <input class="input-adm" id="ibairro" type="text" required />
+                </p>
+                <p>
+                  <label class="label-adm" for="icidade">Cidade: <span>*</span></label>
+                  <input class="input-adm" id="icidade" type="text" required />
+                </p>
+                <p>
+                  <label class="label-adm" for="iuf">Estado: <span>*</span></label>
+                  <select id="iuf">
+                    <option value="0">Selecione</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                  </select>
+                </p>
+              </fieldset>
+              <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+          </form>
+        </div>
+        <aside class="aside-adm aside-1"></aside>
+        <aside class="aside-adm aside-2"></aside>
+        
+      </div>
+    </section>
+  </main> 
+  <footer>
+    <div>
+      <h3>Clube Benefício</h3>
+      <p><a href="">Associe-se</a></p>
+      <p><a href="">Sobre o Clube</a></p>
+      <p><a href="">Dúvidas frequentes</a></p>
+      <p><a href="">Convênios</a></p>
+      <p><a href="">Política de Privacidade</a></p> 
+    </div>
+    <div>
+      <h3>Seu espaço</h3>
+      <p><a href="">Área do associado</a></p>
+      <p><a href="">Depoimentos de associados</a></p>
+      <p><a href="">DEmpresa conveniada</a></p>
+    </div>
+    <div>
+      <h3>Fale Conosco</h3>
+      <p><a href="">Avenida Presidente Vargas 509 - 8º andar<br>- CEP: 20071-003 - Centro - Rio de Janeiro/RJ</a></p>
+      <p><a href=""><img src="Imagens/landline-n.png"> (21) 3321-6425</a></p>
+      <p><a href=""><img src="Imagens/phone-call.png"> (21) 6425-3321</a></p>
+      <p><a href=""><img src="Imagens/email-n.png" style="height: 12px;"> clubebenef@rbenef.com.br</a></p>
+      </dl>
+    </div>
+  </footer> 
+    
+    
+</body>
+</html>
